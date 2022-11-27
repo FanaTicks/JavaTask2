@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Reports xmlns="https://polis.ua/shtraf">
+    <Report>
+        <type>Kill</type>
+        <fine_amount>1340.0</fine_amount>
+    </Report>
+    <Report>
+        <type>Red</type>
+        <fine_amount>1000.0</fine_amount>
+    </Report>
+    <Report>
+        <type>Alco</type>
+        <fine_amount>840.0</fine_amount>
+    </Report>
+    <Report>
+        <type>No number</type>
+        <fine_amount>680.0</fine_amount>
+    </Report>
+    <Report>
+        <type>Spead</type>
+        <fine_amount>680.0</fine_amount>
+    </Report>
+    <Report>
+        <type>Speed</type>
+        <fine_amount>340.0</fine_amount>
+    </Report>
+</Reports>
