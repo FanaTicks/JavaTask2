@@ -12,7 +12,7 @@ import static org.example.task2Optimized.InputOutputFiles.readAndParse;
 public class Main {
     public static void main(String[] args) throws IOException, ParseException {
         InputXml inputXml = new InputXml();
-        inputXml.readFile("C:\\Users\\Alex\\Desktop\\task\\Task\\src\\main\\resources\\xml_file_task1.xml");
+        inputXml.readFile("src\\main\\resources\\xml_file_task1.xml");
 
         InputOutputFilesXml inputOutputFilesXml = new InputOutputFilesXml();
         inputOutputFilesXml.readFile();

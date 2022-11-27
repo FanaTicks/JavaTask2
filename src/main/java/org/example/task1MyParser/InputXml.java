@@ -44,7 +44,7 @@ public class InputXml {
         }
     }
     private static void cleareFile(){
-        try (BufferedWriter bf = Files.newBufferedWriter(Path.of("C:\\Users\\Alex\\Desktop\\task\\Task\\src\\main\\resources\\xml_file_task1_output.xml"),
+        try (BufferedWriter bf = Files.newBufferedWriter(Path.of("src\\main\\resources\\xml_file_task1_output.xml"),
                 StandardOpenOption.TRUNCATE_EXISTING)) {
         } catch (IOException e) {
             e.printStackTrace();

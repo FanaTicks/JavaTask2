@@ -7,7 +7,7 @@ import java.util.List;
 public class WriteXml {
     public void writeXmlFile(List<String> fileName){
         Iterator<String> nameIterator = fileName.iterator();
-        try(PrintWriter output = new PrintWriter(new FileWriter("C:\\Users\\Alex\\Desktop\\task\\Task\\src\\main\\resources\\xml_file_task1_output.xml",true)))
+        try(PrintWriter output = new PrintWriter(new FileWriter("src\\main\\resources\\xml_file_task1_output.xml",true)))
         {
             while (nameIterator.hasNext()) {
                 String fileNameString = nameIterator.next();

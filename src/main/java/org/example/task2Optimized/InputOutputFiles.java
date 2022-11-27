@@ -29,7 +29,7 @@ public class InputOutputFiles {
 
     public static void readAndParse(int quantityReport) throws IOException {
         for (int value =1;value<= quantityReport;value++) {
-            try (final JsonReader jsonReader = new JsonReader(new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\Alex\\Desktop\\task\\Task\\src\\main\\resources\\report1." + value + ".json"))))) {
+            try (final JsonReader jsonReader = new JsonReader(new BufferedReader(new InputStreamReader(new FileInputStream("src\\main\\resources\\report1." + value + ".json"))))) {
                 parseReports(jsonReader);
             }
         }
@@ -96,7 +96,7 @@ public class InputOutputFiles {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(doc);
 
-            StreamResult file = new StreamResult(new File("C:/Users/Alex/Desktop/task/Task/src/main/resources/ReportsTop.xml"));
+            StreamResult file = new StreamResult(new File("src/main/resources/ReportsTop.xml"));
 
             transformer.transform(source, file);
         } catch (Exception e) {

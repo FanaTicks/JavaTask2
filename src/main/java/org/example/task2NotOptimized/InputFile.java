@@ -15,7 +15,7 @@ public class InputFile {
     public void readJson(int quantityReport) throws ParseException {
         Map<String, Double> map = new HashMap<>();
         for (int value =1;value<= quantityReport;value++) {
-            try(FileReader fileRead = new FileReader("C:\\Users\\Alex\\Desktop\\task\\Task\\src\\main\\resources\\report"+value+".json")) {
+            try(FileReader fileRead = new FileReader("src\\main\\resources\\report"+value+".json")) {
                 JSONParser parser = new JSONParser();
                 JSONObject jsonObject = (JSONObject) parser.parse(fileRead);
                 String type = (String) jsonObject.get("type");

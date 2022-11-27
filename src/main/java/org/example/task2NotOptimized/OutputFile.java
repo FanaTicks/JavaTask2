@@ -32,7 +32,7 @@ public class OutputFile {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(doc);
 
-            StreamResult file = new StreamResult(new File("C:/Users/Alex/Desktop/task/Task/src/main/resources/Reports.xml"));
+            StreamResult file = new StreamResult(new File("src/main/resources/Reports.xml"));
 
             transformer.transform(source, file);
         } catch (Exception e) {

@@ -21,7 +21,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class InputOutputFilesXml {
-    private static final String FILENAME1 = "C:/Users/Alex/Desktop/task/Task/src/main/resources/xml_file_task1.xml";
+    private static final String FILENAME1 = "src/main/resources/xml_file_task1.xml";
     private static final String FILENAME2 = "src/main/resources/xml_file_task1_read_parser.xml";
 
     public static void readFile() {
