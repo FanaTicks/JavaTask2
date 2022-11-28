@@ -18,8 +18,8 @@ public class InputFile {
             try(FileReader fileRead = new FileReader("src\\main\\resources\\report"+value+".json")) {
                 JSONParser parser = new JSONParser();
                 JSONObject jsonObject = (JSONObject) parser.parse(fileRead);
-                String type = (String) jsonObject.get("type");
-                Double fineAmount = (Double)jsonObject.get("fine_amount");
+                String type = (String) jsonObject.get("type"); //поиск type
+                Double fineAmount = (Double)jsonObject.get("fine_amount");//поиск fine_amount
                 if (map.containsKey(type)) {
                     Double get = map.get(type);//импорт значения ключа
                     map.put(type, get+fineAmount);//повышение значения ключа
@@ -36,6 +36,6 @@ public class InputFile {
                 .collect(Collectors.toMap(
                         Map.Entry::getKey,
                         Map.Entry::getValue,
-                        (oldVal, newVal) -> oldVal, LinkedHashMap::new)));
+                        (oldVal, newVal) -> oldVal, LinkedHashMap::new)));//вызов метода для записи сортированой мапы
     }
 }

@@ -39,31 +39,31 @@ public class InputOutputFiles {
                 .collect(Collectors.toMap(
                         Map.Entry::getKey,
                         Map.Entry::getValue,
-                        (oldVal, newVal) -> oldVal, LinkedHashMap::new)));
+                        (oldVal, newVal) -> oldVal, LinkedHashMap::new)));//
     }
 
     public static void parseReports(final JsonReader jsonReader) throws IOException {
-        jsonReader.beginObject();
+        jsonReader.beginObject();//начало обьэкта {
         final String itemsName = jsonReader.nextName();
         if ( !itemsName.equals(ITEMS_NAME) ) {
-            throw new MalformedJsonException(ITEMS_NAME + " expected but was " + itemsName);
+            throw new MalformedJsonException(ITEMS_NAME + " expected but was " + itemsName);//вывод ошибки
         }
-        jsonReader.beginArray();
+        jsonReader.beginArray();//начала масива
         while ( jsonReader.hasNext() ) {
-            jsonReader.beginObject();
+            jsonReader.beginObject();//начало обьэкта
             String type = "";
             double fineAmount = 0;
             while ( jsonReader.hasNext() ) {
                 final String property = jsonReader.nextName();
                 switch ( property ) {
                     case TYPE_PROPERTY:
-                        type = jsonReader.nextString();
+                        type = jsonReader.nextString();//нашли тип
                         break;
                     case FINE_AMOUNT__PROPERTY:
-                        fineAmount = jsonReader.nextDouble();
+                        fineAmount = jsonReader.nextDouble();//нашли цену
                         break;
                     default:
-                        jsonReader.skipValue();
+                        jsonReader.skipValue();//не подходящий обьэкт
                         break;
                 }
             }
@@ -74,10 +74,10 @@ public class InputOutputFiles {
             }
             else map.put(type, fineAmount);//добавление ключа
 
-            jsonReader.endObject();
+            jsonReader.endObject();//конец обьэкта
         }
-        jsonReader.endArray();
-        jsonReader.endObject();
+        jsonReader.endArray();//конец масива
+        jsonReader.endObject();//конец обьэкта  }
 
     }
     public static void writeFile(Map<String, Double> map) {
@@ -90,14 +90,14 @@ public class InputOutputFiles {
             doc.appendChild(rootElement);
 
             for(Map.Entry<String, Double> item : map.entrySet())
-                rootElement.appendChild(getReport(doc, item.getKey(), item.getValue()));
+                rootElement.appendChild(getReport(doc, item.getKey(), item.getValue()));//создание елемента для каждого значения мапы
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(doc);
 
             StreamResult file = new StreamResult(new File("src/main/resources/ReportsTop.xml"));
-
+            //запись в файл
             transformer.transform(source, file);
         } catch (Exception e) {
             e.printStackTrace();

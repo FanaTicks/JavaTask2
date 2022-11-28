@@ -24,14 +24,14 @@ public class InputXml {
                         searchNameSurname.editNameSurname(lineInPerson);
                         lineInPerson.clear();
                     }
-                    else lineInPerson.add(line);//конец не в той же строке
+                    else lineInPerson.add(line);//конец не в той же строке, просто добавляем строку
                 }
                 else if(line.contains("/>")){//конец не в той же строке
                     lineInPerson.add(line);
                     searchNameSurname.editNameSurname(lineInPerson);
                     lineInPerson.clear();
                 }
-                else if(line.contains("</")){
+                else if(line.contains("</")){//начало файла
                     lineInPerson.add(line);
                     searchNameSurname.editNameSurname(lineInPerson);
                     lineInPerson.clear();

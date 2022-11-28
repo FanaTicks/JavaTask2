@@ -53,23 +53,23 @@ public class InputOutputFilesXml {
 
                     Element element = (Element) node;
 
-                    String birthData = element.getAttribute("birthDate");
-                    String name = element.getAttribute("name");
-                    String surname = element.getAttribute("surname");
+                    String birthData = element.getAttribute("birthDate");//поиск элемента birthDate
+                    String name = element.getAttribute("name");//поиск элемента name
+                    String surname = element.getAttribute("surname");//поиск элемента surname
 
-                    root.appendChild(createUser(doc1, name, surname, birthData));
+                    root.appendChild(createUser(doc1, name, surname, birthData));//создание нового createUser
                 }
             }
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            Transformer transf = transformerFactory.newTransformer();
+            Transformer transf = transformerFactory.newTransformer();//добавление свойств
 
             transf.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
             transf.setOutputProperty(OutputKeys.INDENT, "yes");
 
             DOMSource source = new DOMSource(doc1);
 
-            File myFile = new File(FILENAME2);
+            File myFile = new File(FILENAME2);//новый файл
 
             StreamResult file = new StreamResult(myFile);
 

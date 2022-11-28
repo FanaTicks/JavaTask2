@@ -11,7 +11,7 @@ public class WriteXml {
         {
             while (nameIterator.hasNext()) {
                 String fileNameString = nameIterator.next();
-                output.printf("%s\r\n", fileNameString);
+                output.printf("%s\r\n", fileNameString);//каждую часть листа записывать с новой строки
             }
         }
         catch (Exception e) {
