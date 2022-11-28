@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ParseXml {
-    public void readFile(String fileName){
+    public void editXml(String fileName){
         List<String> lineInPerson = new ArrayList<>();
         cleareFile();
         try (
