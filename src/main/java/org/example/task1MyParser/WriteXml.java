@@ -1,6 +1,7 @@
 package org.example.task1MyParser;
 
-import java.io.*;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 

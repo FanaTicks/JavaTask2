@@ -13,7 +13,12 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.io.*;
+
+import java.io.File;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -24,13 +29,12 @@ public class InputOutputFiles {
     private static final String TYPE_PROPERTY = "type";
     private static final String FINE_AMOUNT__PROPERTY = "fine_amount";
 
-    static Map<String, Double> map = new HashMap<>();
-
 
     public static void readAndParse(int quantityReport) throws IOException {
+        Map<String, Double> map = new HashMap<>();
         for (int value =1;value<= quantityReport;value++) {
             try (final JsonReader jsonReader = new JsonReader(new BufferedReader(new InputStreamReader(new FileInputStream("src\\main\\resources\\report1." + value + ".json"))))) {
-                parseReports(jsonReader);
+                map.putAll(parseReports(jsonReader));
             }
         }
         writeFile(map.entrySet()
@@ -42,7 +46,8 @@ public class InputOutputFiles {
                         (oldVal, newVal) -> oldVal, LinkedHashMap::new)));//
     }
 
-    public static void parseReports(final JsonReader jsonReader) throws IOException {
+    public static Map<String, Double> parseReports(final JsonReader jsonReader) throws IOException {
+        Map<String, Double> map = new HashMap<>();
         jsonReader.beginObject();//начало обьэкта {
         final String itemsName = jsonReader.nextName();
         if ( !itemsName.equals(ITEMS_NAME) ) {
@@ -72,12 +77,15 @@ public class InputOutputFiles {
                 Double get = map.get(type);//импорт значения ключа
                 map.put(type, get+fineAmount);//повышение значения ключа
             }
-            else map.put(type, fineAmount);//добавление ключа
+            else {
+                map.put(type, fineAmount);//добавление ключа
+            }
 
             jsonReader.endObject();//конец обьэкта
         }
         jsonReader.endArray();//конец масива
         jsonReader.endObject();//конец обьэкта  }
+        return map;
 
     }
     public static void writeFile(Map<String, Double> map) {
@@ -89,8 +97,9 @@ public class InputOutputFiles {
             Element rootElement = doc.createElementNS("https://polis.ua/shtraf", "Reports");
             doc.appendChild(rootElement);
 
-            for(Map.Entry<String, Double> item : map.entrySet())
+            for(Map.Entry<String, Double> item : map.entrySet()) {
                 rootElement.appendChild(getReport(doc, item.getKey(), item.getValue()));//создание елемента для каждого значения мапы
+            }
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");

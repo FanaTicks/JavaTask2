@@ -25,8 +25,9 @@ public class OutputFile {
             Element rootElement = doc.createElementNS("https://polis.ua/shtraf", "Reports");//создание елемента
             doc.appendChild(rootElement);
 
-            for(Map.Entry<String, Double> item : map.entrySet())
+            for(Map.Entry<String, Double> item : map.entrySet()) {
                 rootElement.appendChild(getReport(doc, item.getKey(), item.getValue()));//добавление Report с каждого значения мапы
+            }
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");

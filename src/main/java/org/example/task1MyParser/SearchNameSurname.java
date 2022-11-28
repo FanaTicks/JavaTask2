@@ -20,7 +20,9 @@ public class SearchNameSurname {
                 fileContent.add(logItem.replaceAll(matcherSurname.group(1), ""));
                 Surname=matcherSurname.group(2);//запоминаем фамилю
             }
-            else fileContent.add(logItem);
+            else {
+                fileContent.add(logItem);
+            }
             if (matcherName.find( )) {
                 Name=matcherName.group(1);//запоминаем имя
             }
@@ -30,7 +32,9 @@ public class SearchNameSurname {
             if (matcherName.find( )) {
                 fileContent2.add(logItem.replaceAll(matcherName.group(1), connectNameSurname(Name, Surname)));//меняем имя на имя+фамилия
             }
-            else fileContent2.add(logItem);
+            else {
+                fileContent2.add(logItem);
+            }
         }
         WriteXml writeXml = new WriteXml();
         writeXml.writeXmlFile(fileContent2);//записываем в новый файл

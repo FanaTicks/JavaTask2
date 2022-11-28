@@ -4,7 +4,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.*;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -24,7 +25,9 @@ public class InputFile {
                     Double get = map.get(type);//импорт значения ключа
                     map.put(type, get+fineAmount);//повышение значения ключа
                 }
-                else map.put(type, fineAmount);//добавление ключа
+                else {
+                    map.put(type, fineAmount);//добавление ключа
+                }
 
             } catch (IOException e) {
                 throw new RuntimeException(e);

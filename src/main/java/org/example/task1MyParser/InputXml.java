@@ -1,6 +1,9 @@
 package org.example.task1MyParser;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
@@ -24,7 +27,9 @@ public class InputXml {
                         searchNameSurname.editNameSurname(lineInPerson);
                         lineInPerson.clear();
                     }
-                    else lineInPerson.add(line);//конец не в той же строке, просто добавляем строку
+                    else {
+                        lineInPerson.add(line);//конец не в той же строке, просто добавляем строку
+                    }
                 }
                 else if(line.contains("/>")){//конец не в той же строке
                     lineInPerson.add(line);
@@ -36,7 +41,9 @@ public class InputXml {
                     searchNameSurname.editNameSurname(lineInPerson);
                     lineInPerson.clear();
                 }
-                else lineInPerson.add(line);
+                else {
+                    lineInPerson.add(line);
+                }
                 line = br.readLine();
             }
         } catch (Exception e) {
