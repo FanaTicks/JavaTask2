@@ -1,7 +1,6 @@
 package org.example;
 
 import org.example.task1MyParser.ParseXml;
-import org.example.task1ReadyParser.InputOutputFilesXml;
 import org.example.task2NotOptimized.InputFile;
 import org.json.simple.parser.ParseException;
 

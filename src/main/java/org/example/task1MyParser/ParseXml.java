@@ -1,6 +1,11 @@
 package org.example.task1MyParser;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
