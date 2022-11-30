@@ -34,6 +34,4 @@
    *  Виконав завдання оптимізовано, з завантаженям по одному jsonObject
   ![image](https://user-images.githubusercontent.com/75033218/204153228-3f30a44f-5adc-40d8-8989-5d779487ad45.png)
   ![image](https://user-images.githubusercontent.com/75033218/204153236-81008a67-2423-4493-97ae-33a8f6c3fc66.png)
-  
-  У task2NotOptimized та task2Optimized вихідний файл з різними сумами, тому що в вхідних файлах я зазначав різні суми.
 
