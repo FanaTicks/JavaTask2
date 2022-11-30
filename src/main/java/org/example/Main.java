@@ -1,7 +1,6 @@
 package org.example;
 
 import org.example.task1MyParser.ParseXml;
-import org.example.task2NotOptimized.InputFile;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
@@ -17,9 +16,6 @@ public class Main {
         parseXml.editXml("src\\main\\resources\\xml_file_task1.xml");
 
         readFile();
-
-        InputFile inputFile = new InputFile();
-        inputFile.readJson(5);
 
         readAndParse(5);
 
