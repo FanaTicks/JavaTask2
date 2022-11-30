@@ -76,8 +76,7 @@ public class InputOutputFiles {
             if (map.containsKey(type)) {
                 Double get = map.get(type);//импорт значения ключа
                 map.put(type, get+fineAmount);//повышение значения ключа
-            }
-            else {
+            } else {
                 map.put(type, fineAmount);//добавление ключа
             }
 

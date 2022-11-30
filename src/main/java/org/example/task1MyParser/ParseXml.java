@@ -30,22 +30,14 @@ public class ParseXml {
                         lineInPerson.add(line);
                         editNameSurname(lineInPerson);
                         lineInPerson.clear();
-                    }
-                    else {
+                    } else {
                         lineInPerson.add(line);//конец не в той же строке, просто добавляем строку
                     }
-                }
-                else if(line.contains("/>")){//конец не в той же строке
+                } else if(line.contains("/>") || line.contains("</")){//конец не в той же строке
                     lineInPerson.add(line);
                     editNameSurname(lineInPerson);
                     lineInPerson.clear();
-                }
-                else if(line.contains("</")){//начало файла
-                    lineInPerson.add(line);
-                    editNameSurname(lineInPerson);
-                    lineInPerson.clear();
-                }
-                else {
+                } else {
                     lineInPerson.add(line);
                 }
                 line = br.readLine();
@@ -75,8 +67,7 @@ public class ParseXml {
             if (matcherSurname.find( )) {
                 fileContent.add(logItem.replaceAll(matcherSurname.group(1), ""));
                 Surname=matcherSurname.group(2);//запоминаем фамилю
-            }
-            else {
+            } else {
                 fileContent.add(logItem);
             }
             if (matcherName.find( )) {
@@ -87,8 +78,7 @@ public class ParseXml {
             Matcher matcherName = attributePatternName.matcher(logItem);
             if (matcherName.find( )) {
                 fileContent2.add(logItem.replaceAll(matcherName.group(1), connectNameSurname(Name, Surname)));//меняем имя на имя+фамилия
-            }
-            else {
+            } else {
                 fileContent2.add(logItem);
             }
         }
