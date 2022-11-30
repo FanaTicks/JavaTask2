@@ -30,12 +30,6 @@
     * Використав готовий парсер без зберігання формату запису в файлі
   ![image](https://user-images.githubusercontent.com/75033218/204153150-c96d9aaa-6967-461a-b824-15da7b17acc1.png)
 
-   * task2NotOptimized:
-    * Виконав завдання з одразу повним завантаженям файлу
-  ![image](https://user-images.githubusercontent.com/75033218/204153178-78b7df8f-17e3-44d8-9510-a2f998ec4544.png)
-  ![image](https://user-images.githubusercontent.com/75033218/204153197-7183308e-0c1d-4a70-bd36-75962161619f.png)
-
-
    * task2Optimized:
    *  Виконав завдання оптимізовано, з завантаженям по одному jsonObject
   ![image](https://user-images.githubusercontent.com/75033218/204153228-3f30a44f-5adc-40d8-8989-5d779487ad45.png)
